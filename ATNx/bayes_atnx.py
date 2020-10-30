@@ -109,16 +109,16 @@ class binomial_bayes(object):
 
         sum_val = 0
         for i, val in enumerate(samples):
-            bin_res = binomial(self.a1, self.b1, val)
-            sum_val += bin_res
-            res[i] = bin_res
-        ax.plot(samples, res, label="control", c="k", linestyle="--")
-        sum_val = 0
-        for i, val in enumerate(samples):
             bin_res = binomial(self.a2, self.b2, val)
             sum_val += bin_res
             res[i] = bin_res
-        ax.plot(samples, res, label="lesion", c="k", linestyle=":")
+        ax.plot(samples, res, label="ATNx", c="r", linestyle=":", lw=2.5)
+        sum_val = 0
+        for i, val in enumerate(samples):
+            bin_res = binomial(self.a1, self.b1, val)
+            sum_val += bin_res
+            res[i] = bin_res
+        ax.plot(samples, res, label="CControl", c="k", linestyle="--", lw=2.5)
         ax.set_xlabel("Probability of spatial recording")
         ax.set_ylabel("Posterior distribution")
         plt.legend()
